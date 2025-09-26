@@ -1,0 +1,31 @@
+@if (!loading() && error()) {
+<!-- Error Handling -->
+<p>{{ error() }}</p>
+} @else if (loading()) {
+<!-- Loading -->
+<p>Loading...</p>
+} @else {
+<!-- Table -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (book of bookList(); track book.id) {
+    <tr>
+      <td>{{ book.id }}</td>
+      <td>{{ book.name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.description }}</td>
+      <td>{{ book.category }}</td>
+    </tr>
+    }
+  </tbody>
+</table>
+}
