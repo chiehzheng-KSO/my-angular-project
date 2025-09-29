@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './book-table.component.scss',
 })
 export class BookTableComponent {
-  //Before Mock Server
+
+  //region Before Mock Server
   // error = signal<string>('');
   // loading = signal<boolean>(false);
   // bookList = signal<Book[]>([
@@ -30,8 +31,9 @@ export class BookTableComponent {
   //     category: 'Fantasy',
   //   },
   // ]);
+  //endregion
 
-  //After Mock Server
+  //region After Mock Server
   bookService = inject(BookService);
   bookList = signal<Book[]>([]);
   error = signal<string>('');
@@ -58,4 +60,5 @@ export class BookTableComponent {
         .subscribe();
     });
   }
+  //endregion
 }

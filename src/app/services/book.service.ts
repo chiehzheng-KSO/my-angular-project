@@ -8,11 +8,11 @@ import { Observable} from 'rxjs';
 })
 export class BookService {
   private http = inject(HttpClient);
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://localhost:8080';
   constructor() { }
 
   getBookList(): Observable<{data:Book[]}>{
     const params = new HttpParams().set('error', 'true');
-    return this.http.get<{data:Book[]}>(`${this.baseUrl}/api/books/list`, { params });
+    return this.http.get<{data:Book[]}>(`${this.baseUrl}/library/book/list`, { params });
   }
 }
