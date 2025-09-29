@@ -18,6 +18,13 @@ export const mockFn: MockFn<any, { data: any[] } | Error> = (req) => {
         description: 'Few kids try to use magic to save the world again',
         category: 'Romance',
       },
+      {
+        id: 3,
+        name: 'Harry Potter 3',
+        author: 'J. K. Rowling',
+        description: 'Few kids try to use magic to save the world again and again',
+        category: 'Romance',
+      },
     ],
   };
 
