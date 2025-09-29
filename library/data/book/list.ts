@@ -1,6 +1,23 @@
-import { faker } from '@faker-js/faker';
-import { MockFn } from 'helpers/common';
+import {faker} from '@faker-js/faker';
+import {MockFn} from 'helpers/common';
+
 export const mockFn: MockFn<any, { data: any[] } | Error> = (req) => {
+
+  //Error Handling
+  if (req.query.error === 'true') {
+    return new Error('Custom error message');
+  }
+  //Faker generated data
+  const getCategory = () => {
+    return faker.helpers.arrayElement([
+      'Fantasy',
+      'Science Fiction',
+      'Mystery',
+      'Thriller',
+      'Romance',
+    ]);
+  };
+
   // Static data
   return {
     data: [
@@ -9,38 +26,24 @@ export const mockFn: MockFn<any, { data: any[] } | Error> = (req) => {
         name: 'Harry Potter 1',
         author: 'J. K. Rowling',
         description: 'Few kids try to use magic to save the world',
-        category: 'Romance',
+        category: getCategory(),
       },
       {
         id: 2,
         name: 'Harry Potter 2',
         author: 'J. K. Rowling',
         description: 'Few kids try to use magic to save the world again',
-        category: 'Romance',
+        category: getCategory(),
       },
       {
         id: 3,
         name: 'Harry Potter 3',
         author: 'J. K. Rowling',
         description: 'Few kids try to use magic to save the world again and again',
-        category: 'Romance',
+        category: getCategory(),
       },
     ],
   };
 
-  //Error Handling
-  // if (req.query.error === 'true') {
-  //   return new Error('Custom error message');
-  // }
 
-  //Faker generated data
-  // const getCategory = () => {
-  //   return faker.helpers.arrayElement([
-  //     'Fantasy',
-  //     'Science Fiction',
-  //     'Mystery',
-  //     'Thriller',
-  //     'Romance',
-  //   ]);
-  // };
 };
